@@ -1,0 +1,20 @@
+- name: Install the toolchain
+  apt:
+    name: ['build-essential', 'git']
+    state: present
+
+- name: Install the editors
+  apt:
+    name: ['emacs', 'vim-nox']
+    state: present
+
+- name: Install misc tools
+  apt:
+    name: ['ack', 'htop', 'mc', 'gdb', 'gcc', 'gcc-multilib', 'python', 'autoconf', 'libtool']
+    state: present
+
+- name: Install dlang environment
+  include: dlang.yml
+
+- name: Install valgrind
+  include: valgrind.yml

@@ -1,0 +1,5 @@
+- name: Install vm drivers
+  include: helper-pkgs.yml
+
+- name: Disable unused services
+  include: services.yml

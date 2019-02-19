@@ -1,0 +1,23 @@
+---
+- hosts: all
+  become: yes
+
+  vars:
+    interface: "cli"
+    hostname: "d-kernel-module"
+    valgrind_dir: "/home/vagrant/valgrind"
+    kernel_labs_dir: "/home/vagrant/linux-kernel-labs/linux"
+
+  tasks:
+  #- name: Basic setup
+    #include: basic.yml
+
+  #- name: Reboot the machine
+    #reboot:
+
+  - name: Dev-tools setup
+    include: dev-tools.yml
+
+  - name: Setup dkernel dev env
+    include: dkern.yml
+

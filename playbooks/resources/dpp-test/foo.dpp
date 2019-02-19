@@ -1,0 +1,6 @@
+// foo.dpp
+#include <linux/namei.h>
+
+void main()
+{
+}

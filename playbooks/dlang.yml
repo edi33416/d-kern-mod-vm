@@ -1,0 +1,29 @@
+- name: Install dmd
+  apt:
+    deb: http://downloads.dlang.org/releases/2.x/2.084.1/dmd_2.084.1-0_amd64.deb
+
+# dpp
+- name: Install dpp prerequisites
+  apt:
+    name: ['clang', 'libclang-dev', 'libclang-7-dev']
+    state: present
+
+- name: dub install libclang
+  command: 'dub fetch libclang'
+  become: yes
+  become_user: vagrant
+
+- name: dub install libclang
+  command: 'dub build libclang'
+  become: yes
+  become_user: vagrant
+
+- name: dub install dpp
+  command: 'dub fetch dpp'
+  become: yes
+  become_user: vagrant
+
+- name: dub install dpp
+  command: 'dub build dpp'
+  become: yes
+  become_user: vagrant

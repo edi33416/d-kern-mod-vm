@@ -1,0 +1,10 @@
+- name: Clone linux kernel labs
+  git:
+    repo: 'https://github.com/linux-kernel-labs/linux.git'
+    dest: "{{ kernel_labs_dir }}"
+    depth: 1
+
+- name: Copy test files
+  synchronize:
+    src: resources/dpp-test/
+    dest: /home/vagrant/dpp-test/
